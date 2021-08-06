@@ -14,7 +14,7 @@ export const getReservation = async (req: Request, res: Response) => {
                              .findOneOrFail(req.params.id, {loadRelationIds: true});
         res.send(reserv);
     } catch {
-        res.status(404).send("Reserva no encontrada");
+        res.status(404).send({detail: "Reserva no encontrada"});
     }
 }
 
